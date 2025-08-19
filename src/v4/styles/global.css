@@ -17,7 +17,10 @@
   It is used to define global CSS variables that can be used throughout the stylesheet.
 */
 :root {
-  color-scheme: light dark;
+  color-scheme: only light;
+
+  /* Force light mode - override system preference */
+  forced-color-adjust: none;
 
   /*
     Set the default font-family to 'Inter', with fallback to sans-serif.
@@ -149,4 +152,22 @@ body {
   overflow: hidden;
   position: absolute;
   clip: rect(0, 0, 0, 0);
+}
+
+/* Force light mode globally */
+* {
+  color-scheme: only light !important;
+}
+
+/* Override any dark mode styles */
+@media (prefers-color-scheme: dark) {
+  * {
+    color-scheme: only light !important;
+  }
+}
+
+/* Custom .br class for 100% width */
+.br {
+  width: 100%;
+  max-width: 90%;
 }

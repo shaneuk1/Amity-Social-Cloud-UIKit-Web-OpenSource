@@ -96,37 +96,17 @@ export const ThemeProvider: React.FC<PropsWithChildren<{ config?: Config }>> = (
   children,
   config,
 }) => {
-  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  const isDefaultTheme = config?.preferred_theme === 'default' || !config?.preferred_theme;
+  // Force light mode - ignore all system preferences
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
 
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(
-    !isDefaultTheme
-      ? (config.preferred_theme as 'dark' | 'light')
-      : mediaQuery.matches
-        ? 'dark'
-        : 'light',
-  );
-
+  // Always keep theme as light
   useEffect(() => {
-    if (!isDefaultTheme) {
-      setCurrentTheme(config.preferred_theme as 'dark' | 'light');
-    } else {
-      setCurrentTheme(mediaQuery.matches ? 'dark' : 'light');
-    }
-  }, [config?.preferred_theme]);
-
-  useEffect(() => {
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!isDefaultTheme) return;
-      setCurrentTheme(e.matches ? 'dark' : 'light');
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [config?.preferred_theme]);
+    setCurrentTheme('light');
+  }, []);
 
   const toggleTheme = () => {
-    setCurrentTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    // Disable theme toggle - always stay in light mode
+    setCurrentTheme('light');
   };
 
   return (

@@ -369,7 +369,12 @@ export const PostContent = ({
       )}
       <div className={styles.postContent__bar} data-type={style}>
         <div className={styles.postContent__bar__userAvatar}>
-          <UserAvatar pageId={pageId} componentId={componentId} userId={post?.postedUserId} />
+          <UserAvatar
+            pageId={pageId}
+            componentId={componentId}
+            userId={post?.postedUserId}
+            shouldRedirectToUserProfile
+          />
         </div>
         <div className={styles.postContent__bar__detail}>
           <div>

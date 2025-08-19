@@ -184,7 +184,12 @@ export const CommentComposer = ({
       </div>
       <div className={clsx(styles.commentComposer__container, containerClassName)}>
         <div className={styles.commentComposer__avatar}>
-          <UserAvatar pageId={pageId} componentId={componentId} userId={userId} />
+          <UserAvatar
+            pageId={pageId}
+            componentId={componentId}
+            userId={userId}
+            shouldRedirectToUserProfile
+          />
         </div>
         <div
           className={styles.commentComposer__input}

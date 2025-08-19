@@ -146,7 +146,12 @@ const PostReplyComment = ({
         </div>
       ) : isEditing ? (
         <div className={styles.postReplyComment__edit}>
-          <UserAvatar pageId={pageId} componentId={componentId} userId={comment.userId} />
+          <UserAvatar
+            pageId={pageId}
+            componentId={componentId}
+            userId={comment.userId}
+            shouldRedirectToUserProfile
+          />
           <div className={styles.postReplyComment__edit__inputWrap}>
             <div className={styles.postReplyComment__edit__input}>
               <CommentInput
@@ -198,7 +203,12 @@ const PostReplyComment = ({
         </div>
       ) : (
         <div className={styles.postReplyComment} style={themeStyles} data-testid={accessibilityId}>
-          <UserAvatar pageId={pageId} componentId={componentId} userId={comment.userId} />
+          <UserAvatar
+            pageId={pageId}
+            componentId={componentId}
+            userId={comment.userId}
+            shouldRedirectToUserProfile
+          />
           <div className={styles.postReplyComment__details}>
             <div className={styles.postReplyComment__content}>
               <div className={styles.postReplyComment__userInfo}>

@@ -148,6 +148,7 @@ export const UserProfileHeader: React.FC<UserProfileHeaderProps> = ({ user, page
             textPlaceholderClassName={styles.userProfileHeader__avatar__placeholder}
             pageId={pageId}
             componentId={componentId}
+            shouldRedirectToUserProfile
           />
         </Button>
         <div className={styles.userProfileHeader__displayName}>

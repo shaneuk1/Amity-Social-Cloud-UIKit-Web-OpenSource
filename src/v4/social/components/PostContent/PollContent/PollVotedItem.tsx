@@ -44,6 +44,7 @@ export const PollVotedItem: React.FC<PollVotedItemProps> = ({
             className={styles.pollVotedItem__voteCount__avatar}
             userId={currentUserId}
             textPlaceholderClassName={styles.pollVotedItem__voteCount__textPlaceholder}
+            shouldRedirectToUserProfile
           />
         )}
       </div>

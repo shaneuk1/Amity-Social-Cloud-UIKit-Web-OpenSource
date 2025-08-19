@@ -162,7 +162,12 @@ export const PendingPostContent = ({
       >
         <div className={styles.pendingPostContent__bar}>
           <div className={styles.pendingPostContent__userDetail}>
-            <UserAvatar pageId={pageId} componentId={componentId} userId={post?.postedUserId} />
+            <UserAvatar
+              pageId={pageId}
+              componentId={componentId}
+              userId={post?.postedUserId}
+              shouldRedirectToUserProfile
+            />
             <div>
               <Typography.BodyBold
                 className={styles.pendingPostContent__username}

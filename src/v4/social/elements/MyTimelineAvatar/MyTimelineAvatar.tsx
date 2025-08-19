@@ -29,6 +29,7 @@ export function MyTimelineAvatar({
         componentId={componentId}
         className={styles.myTimelineAvatar__userAvatar}
         userId={userId}
+        shouldRedirectToUserProfile
       />
     </div>
   );

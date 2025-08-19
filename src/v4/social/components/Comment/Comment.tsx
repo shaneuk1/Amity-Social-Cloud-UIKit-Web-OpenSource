@@ -227,7 +227,12 @@ export const Comment = ({
         </div>
       ) : isEditing ? (
         <div className={styles.postComment__edit}>
-          <UserAvatar pageId={pageId} componentId={componentId} userId={comment.userId} />
+          <UserAvatar
+            pageId={pageId}
+            componentId={componentId}
+            userId={comment.userId}
+            shouldRedirectToUserProfile
+          />
           <div className={styles.postComment__edit__inputWrap}>
             <div className={styles.postComment__edit__input}>
               <div className={styles.postComment__edit__mentionContainer} ref={mentionRef} />

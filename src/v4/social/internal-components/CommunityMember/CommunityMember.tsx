@@ -44,6 +44,7 @@ export function CommunityMember({
             componentId={componentId}
             className={styles.communityMember__avatar}
             userId={option.user.avatarFileId}
+            shouldRedirectToUserProfile
           />
         </div>
         <div className={styles.communityMember__rightPane}>

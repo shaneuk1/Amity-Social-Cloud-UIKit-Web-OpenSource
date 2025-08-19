@@ -91,6 +91,7 @@ export function InvitationBanner({
             userId={invitation?.inviterUserPublicId}
             className={styles.invitationBanner__avatar}
             textPlaceholderClassName={styles.invitationBanner__avatar}
+            shouldRedirectToUserProfile
           />
         </div>
         <Typography.BodyBold as="p" className={styles.invitationBanner__displayName}>

@@ -177,6 +177,7 @@ export const CommunityMemberItem = ({
             userId={user?.userId}
             isShowModeratorBadge={memberHasModeratorRole}
             className={styles.communityMemberItem__memberAvatar}
+            shouldRedirectToUserProfile
           />
         </div>
         <Typography.BodyBold className={styles.communityMemberItem__memberName}>

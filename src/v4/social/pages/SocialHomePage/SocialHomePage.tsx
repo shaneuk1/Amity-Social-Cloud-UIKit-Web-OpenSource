@@ -56,16 +56,22 @@ export function SocialHomePage({ activeTab: initialActiveTab }: { activeTab?: Ho
   };
 
   useEffect(() => {
-    const handleClickOutside = () => {
-      if (isShowCreatePostMenu) {
-        setIsShowCreatePostMenu(false);
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      // Check if the click is outside the create post menu
+      const createPostMenu = document.querySelector(`.${styles.socialHomePage__createPostMenu}`);
+      if (createPostMenu && !createPostMenu.contains(event.target as Node)) {
+        if (isShowCreatePostMenu) {
+          setIsShowCreatePostMenu(false);
+        }
       }
     };
 
     if (isShowCreatePostMenu) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside); // Add touch support for mobile
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside); // Remove touch listener
     }
   }, [isShowCreatePostMenu]);
 

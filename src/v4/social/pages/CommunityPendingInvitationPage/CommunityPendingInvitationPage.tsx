@@ -136,6 +136,7 @@ export function CommunityPendingInvitationPage(props: CommunityPendingInvitation
                 onPressAvatar={() =>
                   invitation.user?.userId && onAvatarClick(invitation.user?.userId)
                 }
+                shouldRedirectToUserProfile
               />
               <Typography.BodyBold className={styles.communityPendingInvitationPage__memberName}>
                 {invitation.user?.displayName ?? invitation.userId}

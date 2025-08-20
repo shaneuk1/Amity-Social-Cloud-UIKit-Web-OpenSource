@@ -150,6 +150,7 @@ export const PendingPostList = ({
               onPressAvatar={() => {
                 goToUserProfilePage(post?.postedUserId);
               }}
+              shouldRedirectToUserProfile
             />
             <div>
               <Typography.BodyBold

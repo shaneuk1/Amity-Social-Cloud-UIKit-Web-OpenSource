@@ -354,6 +354,7 @@ function SelectedMember({ user, handleRemoveUser }: SelectedMemberProps) {
           className={styles.communityInviteMemberPage__selectedUserAvatarImage}
           imageContainerClassName={styles.communityInviteMemberPage__selectedUserAvatarImage}
           textPlaceholderClassName={styles.communityInviteMemberPage__selectedUserAvatarImage}
+          shouldRedirectToUserProfile
         />
         <Button
           aria-label="click to remove user"

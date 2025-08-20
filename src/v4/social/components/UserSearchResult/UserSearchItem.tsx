@@ -39,6 +39,7 @@ export const UserSearchItem = ({
           userId={user.userId}
           componentId={componentId}
           className={styles.userItem__avatar}
+          shouldRedirectToUserProfile
         />
       </div>
       <div className={styles.userItem__rightPane}>

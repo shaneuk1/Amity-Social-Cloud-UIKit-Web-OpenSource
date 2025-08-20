@@ -61,6 +61,7 @@ export const JoinRequestContent = ({
                 className={styles.joinRequestContent__avatar}
                 userId={joinRequest.user?.userId}
                 onPressAvatar={() => goToUserProfilePage(joinRequest.user?.userId as string)}
+                shouldRedirectToUserProfile
               />
               <Typography.BodyBold
                 className={styles.joinRequestContent__username}

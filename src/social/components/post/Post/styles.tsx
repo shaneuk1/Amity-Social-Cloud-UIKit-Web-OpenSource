@@ -30,7 +30,7 @@ const PlainPostContainer = ({
 export const PostContainer = styled(PlainPostContainer)`
   padding: 16px;
   padding-bottom: 8px;
-  background: ${({ theme }) => theme.palette.system.background};
+  background: ${({ theme }) => (theme as any).palette?.system?.background || '#ffffff'};
   border: 1px solid #edeef2;
   border-radius: 4px;
   margin-bottom: 12px;
@@ -44,7 +44,7 @@ export const PostHeadContainer = styled.div`
 `;
 
 export const ReviewButtonsContainer = styled.div`
-  border-top: 1px solid ${({ theme }) => theme.palette.base.shade4};
+  border-top: 1px solid ${({ theme }) => (theme as any).palette?.base?.shade4 || '#edeef2'};
   margin-top: 6px;
   padding-top: 12px;
   display: flex;

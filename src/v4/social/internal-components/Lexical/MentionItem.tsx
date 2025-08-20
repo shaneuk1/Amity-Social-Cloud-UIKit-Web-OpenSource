@@ -44,6 +44,7 @@ export function MentionItem({
           componentId={componentId}
           userId={option.data.userId}
           className={styles.userMentionItem__avatar}
+          shouldRedirectToUserProfile
         />
       </div>
       <div className={styles.userMentionItem__rightPane}>

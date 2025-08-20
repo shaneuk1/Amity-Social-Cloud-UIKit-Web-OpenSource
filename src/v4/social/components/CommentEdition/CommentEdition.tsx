@@ -32,14 +32,15 @@ export const CommentEdition = ({
   const componentConfig = getConfig(`${pageId}/${componentId}/*`);
   const isElementExcluded = isExcluded(`${pageId}/${componentId}/*`);
 
-  const componentTheme = componentConfig?.theme?.light || theme.v4.colors.primary;
+  const componentTheme = componentConfig?.theme?.light || (theme as any).v4?.colors?.primary;
 
   if (isElementExcluded) return null;
 
   return (
     <CommentEditContainer
       style={{
-        backgroundColor: componentTheme?.primary_color || theme.v4.colors.primary.default,
+        backgroundColor:
+          componentTheme?.primary_color || (theme as any).v4?.colors?.primary?.default || '#1054DE',
       }}
     >
       <CommentEditTextarea

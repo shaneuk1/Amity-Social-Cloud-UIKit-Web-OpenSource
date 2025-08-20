@@ -238,7 +238,16 @@ interface AmityUIKitProviderProps {
   children?: React.ReactNode;
   socialCommunityCreationButtonVisible?: boolean;
   actionHandlers?: {
-    onChangePage?: (data: { type: string; [x: string]: string | boolean }) => void;
+    onChangePage?: (
+      data:
+        | { type: string; [x: string]: string | boolean }
+        | {
+            type: string;
+            context: {
+              [x: string]: string | boolean;
+            };
+          },
+    ) => void;
     onClickCategory?: (categoryId: string) => void;
     onClickCommunity?: (communityId: string) => void;
     onClickUser?: (userId: string) => void;

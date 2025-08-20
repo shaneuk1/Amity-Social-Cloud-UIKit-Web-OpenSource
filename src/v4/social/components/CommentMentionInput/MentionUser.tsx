@@ -33,6 +33,7 @@ export function MentionUser({ isSelected, onClick, onMouseEnter, option }: Menti
           <UserAvatar
             className={styles.communityMember__avatar}
             userId={option.user.avatarFileId}
+            shouldRedirectToUserProfile
           />
         </div>
         <div className={styles.communityMember__rightPane}>

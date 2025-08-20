@@ -71,6 +71,7 @@ export const ClipCaption = ({
           componentId={componentId}
           userId={creator?.userId}
           onPressAvatar={onClickUser}
+          shouldRedirectToUserProfile
         />
         {isLoading && !creator ? (
           <div className={styles.clipCaption__skeleton}>

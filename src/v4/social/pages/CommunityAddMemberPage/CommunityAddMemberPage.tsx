@@ -129,6 +129,7 @@ export const CommunityAddMemberPage = ({
                 userId={user.userId}
                 className={styles.communityAddMemberPage__selectedUserAvatarImage}
                 textPlaceholderClassName={styles.communityAddMemberPage__selectedUserAvatarImage}
+                shouldRedirectToUserProfile
               />
               <Button
                 aria-label="close"
@@ -238,6 +239,7 @@ export const CommunityAddMemberPage = ({
                     textPlaceholderClassName={
                       styles.communityAddMemberPage__selectedUserAvatarImage
                     }
+                    shouldRedirectToUserProfile
                   />
                 </div>
                 <Typography.BodyBold className={styles.communityAddMemberPage__memberName}>

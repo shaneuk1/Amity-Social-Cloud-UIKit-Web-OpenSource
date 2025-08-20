@@ -640,6 +640,7 @@ export function CreateCommunity({ mode }: CreateCommunityProps) {
                       className={styles.createCommunity__selectedUserAvatarImage}
                       imageContainerClassName={styles.createCommunity__selectedUserAvatarImage}
                       textPlaceholderClassName={styles.createCommunity__selectedUserAvatarImage}
+                      shouldRedirectToUserProfile
                     />
                     <Button
                       className={styles.createCommunity__removeUserButton}
@@ -699,6 +700,7 @@ export function CreateCommunity({ mode }: CreateCommunityProps) {
                         className={styles.createCommunity__selectedUserAvatarImage}
                         imageContainerClassName={styles.createCommunity__selectedUserAvatarImage}
                         textPlaceholderClassName={styles.createCommunity__selectedUserAvatarImage}
+                        shouldRedirectToUserProfile
                       />
                       <Button
                         className={styles.createCommunity__removeUserButton}

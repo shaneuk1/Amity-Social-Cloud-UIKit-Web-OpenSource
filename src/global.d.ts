@@ -46,3 +46,21 @@ declare module 'colorthief' {
     ) => RGBColor[] | null;
   }
 }
+
+declare module 'plyr' {
+  interface PlyrOptions {
+    controls?: string[];
+    fullscreen?: { enabled: boolean };
+    clickToPlay?: boolean;
+  }
+
+  interface PlyrElements {
+    container?: HTMLElement;
+  }
+
+  export default class Plyr {
+    constructor(element: HTMLVideoElement, options?: PlyrOptions);
+    elements: PlyrElements;
+    destroy(): void;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "@amityco/ui-kit-open-source",
+  "name": "@weserved/ui-kit-open-source",
   "version": "4.11.0",
   "engines": {
     "node": ">=20",
@@ -147,6 +147,7 @@
     "react-use": "^17.4.2",
     "stylis": "^4.3.1",
     "swiper": "^11.2.8",
+    "user": "^0.0.0",
     "uuid": "^8.3.2",
     "vaul": "0.8.9",
     "zod": "^3.22.4"

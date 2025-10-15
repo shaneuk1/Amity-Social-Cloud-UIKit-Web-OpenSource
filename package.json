@@ -162,5 +162,8 @@
     }
   },
   "license": "LGPL-2.1-only",
-  "packageManager": "pnpm@9.5.0"
+  "packageManager": "pnpm@9.5.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

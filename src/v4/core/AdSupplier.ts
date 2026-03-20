@@ -40,6 +40,10 @@ export class AdSupplier {
   }
 
   #calculateImpressionAges(ads: Amity.Ad[]) {
+    if (ads.length === 0) {
+      return new Map<string, number>();
+    }
+
     const recencySortedAds = ads.sort((ad1, ad2) => {
       const ad1ID = AdEngine.instance.getLastSeen(ad1.adId) ?? 0;
       const ad2ID = AdEngine.instance.getLastSeen(ad2.adId) ?? 0;

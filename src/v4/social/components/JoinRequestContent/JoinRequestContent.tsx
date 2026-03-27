@@ -1,6 +1,5 @@
 import React from 'react';
-import User from '~/v4/icons/User';
-import { Avatar, Typography } from '~/v4/core/components';
+import { Typography } from '~/v4/core/components';
 import { useAmityComponent } from '~/v4/core/hooks/uikit';
 import {
   JoinButton,
@@ -13,6 +12,7 @@ import FireworkPaper from '~/v4/icons/FireworkPaper';
 import { useJoinRequests } from '~/v4/social/hooks/useJoinRequests';
 import { useNavigation } from '~/v4/core/providers/NavigationProvider';
 import { UserListSkeleton } from '~/v4/core/components/UserListSkeleton';
+import { formatUserIdSuffix, getJoinRequestUserIdentifier } from './utils';
 
 type JoinRequestContentProps = {
   pageId?: string;
@@ -52,40 +52,53 @@ export const JoinRequestContent = ({
       )}
       {joinRequests &&
         joinRequests.length > 0 &&
-        joinRequests.map((joinRequest) => (
-          <div className={styles.joinRequestContent__container}>
-            <div className={styles.joinRequestContent__content}>
-              <UserAvatar
-                pageId={pageId}
-                componentId={componentId}
-                className={styles.joinRequestContent__avatar}
-                userId={joinRequest.user?.userId}
-                onPressAvatar={() => goToUserProfilePage(joinRequest.user?.userId as string)}
-                shouldRedirectToUserProfile
-              />
-              <Typography.BodyBold
-                className={styles.joinRequestContent__username}
-                onClick={() => goToUserProfilePage(joinRequest.user?.userId as string)}
-              >
-                {joinRequest.user?.displayName}
-              </Typography.BodyBold>
+        joinRequests.map((joinRequest) => {
+          const userId = getJoinRequestUserIdentifier(joinRequest);
+          const displayName = joinRequest.user?.displayName ?? userId;
+          const userIdSuffix = formatUserIdSuffix(userId);
+
+          return (
+            <div key={joinRequest.joinRequestId} className={styles.joinRequestContent__container}>
+              <div className={styles.joinRequestContent__content}>
+                <UserAvatar
+                  pageId={pageId}
+                  componentId={componentId}
+                  className={styles.joinRequestContent__avatar}
+                  userId={userId}
+                  onPressAvatar={() => goToUserProfilePage(userId)}
+                  shouldRedirectToUserProfile
+                />
+                <div className={styles.joinRequestContent__userInfo}>
+                  <Typography.BodyBold
+                    className={styles.joinRequestContent__username}
+                    onClick={() => goToUserProfilePage(userId)}
+                  >
+                    {displayName}
+                  </Typography.BodyBold>
+                  {userIdSuffix && (
+                    <Typography.Caption as="p" className={styles.joinRequestContent__userIdSuffix}>
+                      ID: {userIdSuffix}
+                    </Typography.Caption>
+                  )}
+                </div>
+              </div>
+              <div className={styles.joinRequestContent__button}>
+                <JoinButton
+                  pageId={pageId}
+                  componentId={componentId}
+                  elementId="join_accept_button"
+                  onPress={() => onClickAccept(joinRequest)}
+                />
+                <RejectButton
+                  pageId={pageId}
+                  componentId={componentId}
+                  elementId="join_decline_button"
+                  onPress={() => onClickReject(joinRequest)}
+                />
+              </div>
             </div>
-            <div className={styles.joinRequestContent__button}>
-              <JoinButton
-                pageId={pageId}
-                componentId={componentId}
-                elementId="join_accept_button"
-                onPress={() => onClickAccept(joinRequest)}
-              />
-              <RejectButton
-                pageId={pageId}
-                componentId={componentId}
-                elementId="join_decline_button"
-                onPress={() => onClickReject(joinRequest)}
-              />
-            </div>
-          </div>
-        ))}
+          );
+        })}
 
       {!isLoading && joinRequests && joinRequests.length === 0 && (
         <div className={styles.joinRequestContent__noJoinRequest}>

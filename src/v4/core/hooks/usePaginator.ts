@@ -100,6 +100,7 @@ const usePaginatorCore = <T>({
 
         const ad = recommendedAds[runningAdIndex];
         runningAdIndex = runningAdIndex + 1 > recommendedAds.length - 1 ? 0 : runningAdIndex + 1;
+        if (!ad) return [newItem];
         return [newItem, ad];
       });
 

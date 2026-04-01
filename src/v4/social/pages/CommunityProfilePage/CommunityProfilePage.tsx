@@ -155,7 +155,7 @@ export const CommunityProfilePage: React.FC<CommunityProfileProps> = ({ communit
     const handleScroll = () => {
       if (containerRef.current && profileTabRef.current) {
         const scrollPosition = containerRef.current.scrollTop;
-        setIsSticky(scrollPosition > profileTabRef.current.offsetTop - 90);
+        setIsSticky(scrollPosition > profileTabRef.current.offsetTop - 162);
       }
     };
 
